@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Micropython Editor">
+    <meta name="keywords" content="Micropython">
+    <meta name="author" content="SeokHoKim">
+    <title>MicroPython Editor</title>
+    <link rel="stylesheet" href="editor.css">
+</head>
+<body>
+    <!-- header -->
+    <h1>MicroPython Editor</h1>
+
+    <!-- form -->
+    <form class="form">
+        <!-- function button Box -->
+        <div id="btnBox">
+            <input type="submit" name="connectBtn" class="btn" id="connectBtn" value="Connect" alt="Connect" onclick="connectDevice(); return false;" />
+            <input type="button" name="runBtn" class="btn" value="Execute" onclick="runDevice()">
+            <input type="button" name="stopBtn" class="btn" value="Stop" onclick="stopDevice()">
+            <input type="button" name="uploadBtn" class="btn" value="Upload" onclick="uploadDevice()">
+            <input type="button" name="downloadBtn" class="btn" value="Download" onclick="downloadDevice()">
+            <input type="button" name="readBtn" class="btn" value="File Read" onclick="document.getElementById('fileSelector').click()">
+            <input type="button" name="saveBtn" class="btn" value="File Save" onclick="fileDownloader()">
+            <input type="button" name="supportBtn" id="supportBtn" value="?" onclick="supportPopup()">
+        </div>
+        <!-- python code write area -->
+        <textarea id="codeWriteBox" spellcheck="false" onkeydown="applyTap(event)" placeholder="input your code..."></textarea>
+
+        <!-- python console output area -->
+        <div id="consoleOutputBox"></div>
+    </form>
+
+    <!-- none display part -->
+    <input type="file" accept=".py" id="fileSelector" onchange="fileReader()">
+
+    <div id="updateStatusModal" class="modal">
+        <div id='statOutput' class="modal-content"></div>
+    </div>
+
+    <div id='supportModal' class="modal">
+        <div id='supportBox' class="modal-content">
+            <h3>Support</h3>
+            <div class="closeBtn" onclick="closeSupport()">&times;</div>
+            <div>
+                <br>
+                <b>C</b>reator : Seok Ho Kim<br>
+                <b>S</b>tudent Number : 201502025<br>
+                <b>E</b>-mail : kky011@cnu.ac.kr<br>
+                <img src="http://4.bp.blogspot.com/-GuzHHRgw6wg/UgvrdcfsfEI/AAAAAAAAACw/YBbtXcZe4c8/s320/cat+banging.gif" alt="cat_banging"><br>
+            </div>
+        </div>
+    </div>
+    <script src="editor.js"></script>
+    <script src="term.js"></script>
+    <script src="FileSaver.js"></script>
+</body>
+</html>
